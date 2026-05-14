@@ -7,6 +7,7 @@ import PopularTours from '@/components/home/PopularTours';
 import Destinations from '@/components/home/Destinations';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import Testimonials from '@/components/home/Testimonials';
+import { BookNowButton } from '@/components/ui/BookNowButton';
 
 export const metadata = {
   title: 'TripLanka | Discover Paradise in Sri Lanka',
@@ -40,17 +41,12 @@ export default function Home() {
             Contact our travel experts today and let us help you create a personalized itinerary that fits your dreams and budget perfectly.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-xl shadow-black/10">
+            <BookNowButton className="bg-white text-primary px-10 py-6 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-xl shadow-black/10">
               Get a Free Quote
-            </button>
-            <a 
-              href="https://wa.me/94756001237"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-block"
-            >
-              Chat on WhatsApp
-            </a>
+            </BookNowButton>
+            <BookNowButton className="bg-white/10 text-white border border-white/20 px-10 py-6 rounded-full font-bold text-lg hover:bg-white/20 transition-all shadow-xl shadow-black/10">
+              Book Your Trip
+            </BookNowButton>
           </div>
         </div>
         {/* Background Accent */}

@@ -11,6 +11,7 @@ import ChevronDown from 'lucide-react/icons/chevron-down';
 import Compass from 'lucide-react/icons/compass';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import BookingModal from '@/components/ui/BookingModal';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,14 +23,23 @@ import { cn } from '@/lib/utils';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
+    const handleOpenBookingModal = () => setIsBookingModalOpen(true);
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('openBookingModal', handleOpenBookingModal);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('openBookingModal', handleOpenBookingModal);
+    };
   }, []);
 
   const navLinks = [
@@ -111,10 +121,13 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button className={cn(
-              "rounded-full px-6",
-              !scrolled && "bg-white text-primary hover:bg-white/90 border-none"
-            )}>
+            <Button 
+              onClick={() => setIsBookingModalOpen(true)}
+              className={cn(
+                "rounded-full px-6",
+                !scrolled && "bg-white text-primary hover:bg-white/90 border-none"
+              )}
+            >
               Book Now
             </Button>
           </div>
@@ -151,11 +164,17 @@ const Navbar = () => {
                 <Phone className="w-5 h-5" />
                 <span>+94 77 123 4567</span>
               </div>
-              <Button className="w-full rounded-full">Book Your Trip</Button>
+              <Button onClick={() => { setIsOpen(false); setIsBookingModalOpen(true); }} className="w-full rounded-full">Book Your Trip</Button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Booking Modal */}
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
     </nav>
   );
 };

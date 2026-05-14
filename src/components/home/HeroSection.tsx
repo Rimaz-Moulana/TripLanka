@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { BookNowButton } from '@/components/ui/BookNowButton';
 import Play from 'lucide-react/icons/play';
 
 const HeroSection = () => {
@@ -44,12 +45,12 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="rounded-full px-8 text-base h-14 bg-primary hover:bg-primary/90 min-w-[200px]">
+            <BookNowButton size="lg" className="rounded-full px-8 text-base h-14 bg-primary hover:bg-primary/90 min-w-[200px]">
               Explore Tours
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 text-base h-14 bg-white/10 hover:bg-white/20 border-white/20 text-white min-w-[200px]">
+            </BookNowButton>
+            <BookNowButton size="lg" variant="outline" className="rounded-full px-8 text-base h-14 bg-white/10 hover:bg-white/20 border-white/20 text-white min-w-[200px]">
               Plan My Trip
-            </Button>
+            </BookNowButton>
           </div>
         </motion.div>
       </div>

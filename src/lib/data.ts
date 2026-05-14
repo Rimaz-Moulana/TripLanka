@@ -79,7 +79,7 @@ export const destinations: Destination[] = [
   { id: '3', name: 'Ella', image: '/images/ella.png', description: 'Breathtaking views and hiking trails.' },
   { id: '4', name: 'Galle', image: '/images/galle.png', description: 'Colonial charm and historic fort.' },
   { id: '5', name: 'Sigiriya', image: '/images/sigiriya.png', description: 'The majestic lion rock fortress.' },
-  { id: '6', name: 'Nuwara Eliya', image: 'https://images.unsplash.com/photo-1546708973-b339540b5162', description: 'Little England amidst tea hills.' },
+  { id: '6', name: 'Nuwara Eliya', image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62', description: 'Little England amidst tea hills.' },
 ];
 
 export const testimonials: Testimonial[] = [
